@@ -22,9 +22,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.regex.Pattern;
+import com.mufan.utils.NetworkUtil;
 
-import utils.NetworkUtil;
+import java.util.regex.Pattern;
 
 import static android.Manifest.permission.ACCESS_NETWORK_STATE;
 
