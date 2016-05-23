@@ -14,6 +14,45 @@
         android:layout_height="wrap_content"
         android:text="Network Monitor"
         android:id="@+id/txt"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/welimage"
         android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/conbt"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/contoller" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/swbt"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/conbt"
+        android:layout_toEndOf="@+id/conbt"
+        android:src="@drawable/switchs" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hostbt"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/swbt"
+        android:layout_toEndOf="@+id/swbt"
+        android:src="@drawable/host" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/welimage"
+        android:src="@drawable/welcome"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

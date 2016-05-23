@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_info"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="基本信息" />
+        <item
+            android:id="@+id/nav_tables"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="数据库表" />
+        <item
+            android:id="@+id/nav_loadedModules"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="加载模块" />
+        <item
+            android:id="@+id/nav_memory"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="内存消耗" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_allModules"
+                android:icon="@drawable/ic_menu_share"
+                android:title="所有模块" />
+            <item
+                android:id="@+id/nav_back"
+                android:icon="@drawable/ic_menu_send"
+                android:title="返回" />
+        </menu>
+    </item>
+
+</menu>
