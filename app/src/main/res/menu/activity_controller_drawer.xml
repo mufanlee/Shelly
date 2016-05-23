@@ -18,14 +18,14 @@
             android:id="@+id/nav_memory"
             android:icon="@drawable/ic_menu_manage"
             android:title="内存消耗" />
+        <item
+            android:id="@+id/nav_allModules"
+            android:icon="@drawable/ic_menu_share"
+            android:title="连接设备" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
-            <item
-                android:id="@+id/nav_allModules"
-                android:icon="@drawable/ic_menu_share"
-                android:title="所有模块" />
             <item
                 android:id="@+id/nav_back"
                 android:icon="@drawable/ic_menu_send"

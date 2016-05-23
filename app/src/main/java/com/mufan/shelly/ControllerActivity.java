@@ -15,18 +15,21 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.mufan.jsons.JsonToController;
+import com.mufan.shelly.listItem.ModulesContent;
 import com.mufan.shelly.listItem.TablesContent;
 
 import java.io.IOException;
 
 public class ControllerActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, TablesFragment.OnListFragmentInteractionListener, StatusFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, TablesFragment.OnListFragmentInteractionListener,
+        StatusFragment.OnFragmentInteractionListener, ModulesFragment.OnListFragmentInteractionListener {
 
     private static FloodlightProvider floodlightProvider = FloodlightProvider.getSingleton();
     private static final String TAG = "ControllerActivity";
 
     private StatusFragment statusFragment;
     private TablesFragment tableFragment;
+    private ModulesFragment modulesFragment;
 
     private Fragment currentFragment;
     @Override
@@ -53,7 +56,6 @@ public class ControllerActivity extends AppCompatActivity
         }
 
         initFragment(savedInstanceState);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -117,7 +119,10 @@ public class ControllerActivity extends AppCompatActivity
             }
             switchFragment(currentFragment, tableFragment);
         } else if (id == R.id.nav_loadedModules) {
-
+            if (modulesFragment == null) {
+                modulesFragment = ModulesFragment.newInstance(1, floodlightProvider.getController().getLoadedModules());
+            }
+            switchFragment(currentFragment, modulesFragment);
         } else if (id == R.id.nav_memory) {
 
         } else if (id == R.id.nav_allModules) {
@@ -175,6 +180,11 @@ public class ControllerActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(ModulesContent.Module item) {
 
     }
 }
