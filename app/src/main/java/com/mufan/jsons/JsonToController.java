@@ -73,6 +73,7 @@ public class JsonToController {
         try {
             String jsonRole = (String) futureRole.get(5, TimeUnit.SECONDS);
             jsonObject = new JSONObject(jsonRole);
+            //Log.d(TAG, "getControllerInfo: " + jsonRole);
             floodlightProvider.getController().setRole(jsonObject.getString("role"));
         } catch (InterruptedException e) {
             Log.e(TAG, "getControllerInfo: failed to get role of controller: " + e.getMessage());

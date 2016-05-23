@@ -88,16 +88,22 @@ public class HTTPUtil {
                     HttpURLConnection connection = (HttpURLConnection)url.openConnection();
                     connection.setRequestMethod("GET");
                     connection.setRequestProperty("Accept", "application/json");
-                    connection.setDoOutput(true);
+                    //connection.setDoOutput(true);
                     connection.setDoInput(true);
 
-                    //send request
-                    InputStream inputStream = connection.getInputStream();
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream
-                            , Charset.forName("UTF-8")));
-                    String json = readAll(reader);
-                    inputStream.close();
-                    return json;
+                    int code = connection.getResponseCode();
+                    if (code == 200) {
+                        //send request
+                        InputStream inputStream = connection.getInputStream();
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream
+                                , Charset.forName("UTF-8")));
+                        String json = readAll(reader);
+                        inputStream.close();
+                        return json;
+                    } else {
+                        Log.e(TAG, "getJsonFromURL: failed to send GET Request: " + code);
+                        return null;
+                    }
                 } catch (IOException e) {
                     Log.e(TAG, "getJsonFromURL: failed to deserialize data from URL: "+ surl);
                     Log.e(TAG, "getJsonFromURL: exception: " +  e.getMessage());
