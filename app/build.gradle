@@ -33,4 +33,5 @@ dependencies {
     compile 'org.json:json:20090211'
     compile 'com.android.support:support-v4:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
 }

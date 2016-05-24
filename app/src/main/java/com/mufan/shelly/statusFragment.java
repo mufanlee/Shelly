@@ -73,7 +73,7 @@ public class StatusFragment extends Fragment {
             role.setText(this.role);
         }
         if (uptime != null) {
-            uptime.setText(this.uptime);
+            uptime.setText(this.uptime + "s");
         }
         return view;
     }

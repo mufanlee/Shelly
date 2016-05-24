@@ -22,7 +22,8 @@ import java.io.IOException;
 
 public class ControllerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, TablesFragment.OnListFragmentInteractionListener,
-        StatusFragment.OnFragmentInteractionListener, ModulesFragment.OnListFragmentInteractionListener {
+        StatusFragment.OnFragmentInteractionListener, ModulesFragment.OnListFragmentInteractionListener,
+        MemoryFragment.OnFragmentInteractionListener{
 
     private static FloodlightProvider floodlightProvider = FloodlightProvider.getSingleton();
     private static final String TAG = "ControllerActivity";
@@ -30,6 +31,7 @@ public class ControllerActivity extends AppCompatActivity
     private StatusFragment statusFragment;
     private TablesFragment tableFragment;
     private ModulesFragment modulesFragment;
+    private MemoryFragment memoryFragment;
 
     private Fragment currentFragment;
     @Override
@@ -124,7 +126,12 @@ public class ControllerActivity extends AppCompatActivity
             }
             switchFragment(currentFragment, modulesFragment);
         } else if (id == R.id.nav_memory) {
-
+            if (memoryFragment == null) {
+                long total = floodlightProvider.getController().getMemory().getTotalMemory();
+                long used = floodlightProvider.getController().getMemory().getUsedMemory();
+                memoryFragment = MemoryFragment.newInstance(total, used);
+            }
+            switchFragment(currentFragment, memoryFragment);
         } else if (id == R.id.nav_allModules) {
 
         } else if (id == R.id.nav_back) {
