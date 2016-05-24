@@ -1,5 +1,6 @@
 package com.mufan.shelly;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -15,15 +16,18 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.mufan.jsons.JsonToController;
+import com.mufan.jsons.JsonToSwitches;
+import com.mufan.shelly.listItem.DPIDContent;
 import com.mufan.shelly.listItem.ModulesContent;
 import com.mufan.shelly.listItem.TablesContent;
 
 import java.io.IOException;
+import java.util.List;
 
 public class ControllerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, TablesFragment.OnListFragmentInteractionListener,
         StatusFragment.OnFragmentInteractionListener, ModulesFragment.OnListFragmentInteractionListener,
-        MemoryFragment.OnFragmentInteractionListener{
+        MemoryFragment.OnFragmentInteractionListener, DPIDItemFragment.OnListFragmentInteractionListener{
 
     private static FloodlightProvider floodlightProvider = FloodlightProvider.getSingleton();
     private static final String TAG = "ControllerActivity";
@@ -32,8 +36,11 @@ public class ControllerActivity extends AppCompatActivity
     private TablesFragment tableFragment;
     private ModulesFragment modulesFragment;
     private MemoryFragment memoryFragment;
+    private DPIDItemFragment dpidItemFragment;
 
     private Fragment currentFragment;
+
+    private List<String> dpid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +59,9 @@ public class ControllerActivity extends AppCompatActivity
 
         try {
             JsonToController.getControllerInfo();
+            dpid = JsonToSwitches.getSwitchDPIDs();
         } catch (IOException e) {
-            Log.e(TAG, "onCreate: failed to get controller infomation: " + e.getMessage());
+            Log.e(TAG, "onCreate: failed to get controller information: " + e.getMessage());
             //e.printStackTrace();
         }
 
@@ -132,10 +140,18 @@ public class ControllerActivity extends AppCompatActivity
                 memoryFragment = MemoryFragment.newInstance(total, used);
             }
             switchFragment(currentFragment, memoryFragment);
-        } else if (id == R.id.nav_allModules) {
-
+        } else if (id == R.id.nav_condevices) {
+            if (dpidItemFragment == null) {
+                dpidItemFragment = DPIDItemFragment.newInstance(1, dpid);
+            }
+            switchFragment(currentFragment, dpidItemFragment);
         } else if (id == R.id.nav_back) {
-
+            Intent intent = new Intent(ControllerActivity.this, MainActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("from","ControllerActivity");
+            intent.putExtras(bundle);
+            startActivity(intent);
+            this.finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -192,6 +208,11 @@ public class ControllerActivity extends AppCompatActivity
 
     @Override
     public void onListFragmentInteraction(ModulesContent.Module item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(DPIDContent.DPIDItem item) {
 
     }
 }

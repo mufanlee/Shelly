@@ -28,7 +28,9 @@
         <activity
             android:name=".ControllerActivity"
             android:label="@string/title_activity_controller"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SwitchActivity" />
+        <activity android:name=".SwitchDetailsActivity"></activity>
     </application>
 
 </manifest>

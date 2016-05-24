@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,12 +18,12 @@ public class MainActivity extends AppCompatActivity {
         final Intent intent = getIntent();
         if (intent != null) {
             Bundle bundle = intent.getExtras();
-            String ip = bundle.getString("ip");
-            floodlightProvider.getController().setIP(ip);
-            String port = bundle.getString("port");
-            floodlightProvider.getController().setOpenFlowPort(Integer.parseInt(port));
-
-            TextView txt = (TextView) findViewById(R.id.txt);
+            if (bundle.get("from").equals("LoginActivity")) {
+                String ip = bundle.getString("ip");
+                floodlightProvider.getController().setIP(ip);
+                String port = bundle.getString("port");
+                floodlightProvider.getController().setOpenFlowPort(Integer.parseInt(port));
+            }
         }
 
         ImageButton mControllerButton = (ImageButton) findViewById(R.id.conbt);
@@ -37,6 +36,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ImageButton mSwitchButton = (ImageButton) findViewById(R.id.swbt);
+        mSwitchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sIntent = new Intent(MainActivity.this, SwitchActivity.class);
+                startActivity(sIntent);
+            }
+        });
         ImageButton mHostButton = (ImageButton) findViewById(R.id.hostbt);
+        mHostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 }

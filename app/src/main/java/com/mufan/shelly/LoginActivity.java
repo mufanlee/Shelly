@@ -268,6 +268,7 @@ public class LoginActivity extends AppCompatActivity {
             if (success) {
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("from","LoginActivity");
                 bundle.putString("ip", mIP);
                 bundle.putString("port", mPort);
                 intent.putExtras(bundle);

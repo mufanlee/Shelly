@@ -4,23 +4,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_info"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/home"
             android:title="基本信息" />
         <item
             android:id="@+id/nav_tables"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/news"
             android:title="数据库表" />
         <item
             android:id="@+id/nav_loadedModules"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/lists"
             android:title="加载模块" />
         <item
             android:id="@+id/nav_memory"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/bing"
             android:title="内存消耗" />
         <item
-            android:id="@+id/nav_allModules"
-            android:icon="@drawable/ic_menu_share"
+            android:id="@+id/nav_condevices"
+            android:icon="@drawable/switcs"
             android:title="连接设备" />
     </group>
 
@@ -28,7 +28,7 @@
         <menu>
             <item
                 android:id="@+id/nav_back"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/back"
                 android:title="返回" />
         </menu>
     </item>

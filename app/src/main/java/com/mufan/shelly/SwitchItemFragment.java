@@ -6,31 +6,35 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mufan.shelly.listItem.ModulesContent;
-import com.mufan.shelly.listItem.ModulesContent.Module;
+import com.mufan.jsons.JsonToSwitches;
+import com.mufan.models.Switch;
+import com.mufan.shelly.listItem.SwitchContent;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
- * A fragment representing a list of modules.
+ * A fragment representing a list of Swtich Items.
  */
-public class ModulesFragment extends Fragment {
+public class SwitchItemFragment extends Fragment{
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
-    private List<String> modules= null;
-    public ModulesFragment() {
+
+    private static FloodlightProvider floodlightProvider = FloodlightProvider.getSingleton();
+    private static final String TAG = "SwitchItemFragment";
+    public SwitchItemFragment() {
     }
 
-    public static ModulesFragment newInstance(int columnCount, List<String> modules) {
-        ModulesFragment fragment = new ModulesFragment();
-        fragment.modules = modules;
+    public static SwitchItemFragment newInstance(int columnCount) {
+        SwitchItemFragment fragment = new SwitchItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -45,17 +49,29 @@ public class ModulesFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
 
-        for (int i = 0; i < modules.size(); i++) {
-            ModulesContent.Module module = new ModulesContent.Module(String.valueOf(i+1),modules.get(i),"");
-            ModulesContent.addItem(module);
+        try {
+            JsonToSwitches.getSwitches();
+        } catch (IOException e) {
+            Log.e(TAG, "onCreate: failed to get switch information" + e.getMessage());
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_modules_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_switchitem_list, container, false);
 
+        List<Switch> switches = floodlightProvider.getSwitches(true);
+        if (switches != null) {
+            for (int i = 0; i < switches.size(); i++) {
+                SwitchContent.ITEMS.clear();
+                SwitchContent.ITEM_MAP.clear();
+                SwitchContent.SwitchItem switchItem = new SwitchContent.SwitchItem(
+                        switches.get(i).getDpid(),switches.get(i).getMfr_desc(),switches.get(i).getHw_desc()
+                        ,switches.get(i).getSw_desc(),switches.get(i).getSerial_num(),switches.get(i).getDp_desc());
+                SwitchContent.addItem(switchItem);
+            }
+        }
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -65,7 +81,7 @@ public class ModulesFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new ModulesRecyclerViewAdapter(ModulesContent.ITEMS, mListener));
+            recyclerView.setAdapter(new SwitchItemRecyclerViewAdapter(SwitchContent.ITEMS, mListener));
         }
         return view;
     }
@@ -99,6 +115,7 @@ public class ModulesFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(Module item);
+        // TODO: Update argument type and name
+        void onListFragmentInteraction(SwitchContent.SwitchItem item);
     }
 }

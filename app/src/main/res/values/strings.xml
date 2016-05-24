@@ -22,8 +22,18 @@
 
     <string name="floodlight">floodlight控制器</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">控制器状态</string>
+    <string name="hello_blank_fragment">控制器基本信息</string>
 
     <string name="jvm_memory_bloat">JVM Memory Bloat</string>
+
+    <string name="dpid">DPID:</string>
+    <string name="manufacturer">Manufacturer:</string>
+    <string name="hardware">Hardware:</string>
+    <string name="software">Software:</string>
+    <string name="serial_number">Serial Number:</string>
+    <string name="packet_count">Packet Count:</string>
+    <string name="flow_count">Flow Count:</string>
+    <string name="tables_count">Tables Count:</string>
+    <string name="ports">Ports:</string>
+    <string name="links">Links:</string>
 </resources>

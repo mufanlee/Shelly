@@ -27,7 +27,6 @@ public class MemoryFragment extends Fragment {
     private static final String ARG_TOTAL = "total";
     private static final String ARG_USED = "used";
 
-    // TODO: Rename and change types of parameters
     private long total;
     private long used;
 
@@ -121,7 +120,6 @@ public class MemoryFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 

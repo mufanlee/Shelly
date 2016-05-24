@@ -9,47 +9,41 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.mufan.shelly.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Network Monitor"
-        android:id="@+id/txt"
-        android:layout_marginTop="59dp"
-        android:layout_below="@+id/welimage"
-        android:layout_centerHorizontal="true" />
-
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/conbt"
-        android:layout_centerVertical="true"
+        android:src="@drawable/contoller"
+        android:layout_alignTop="@+id/swbt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:src="@drawable/contoller" />
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/swbt"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/conbt"
-        android:layout_toEndOf="@+id/conbt"
-        android:src="@drawable/switchs" />
+        android:src="@drawable/switcs"
+        android:layout_alignTop="@+id/hostbt"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hostbt"
+        android:src="@drawable/host"
+        android:layout_marginLeft="41dp"
+        android:layout_marginStart="41dp"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/swbt"
-        android:layout_toEndOf="@+id/swbt"
-        android:src="@drawable/host" />
+        android:layout_toEndOf="@+id/swbt" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/welimage"
-        android:src="@drawable/welcome"
+        android:src="@drawable/logo2"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"

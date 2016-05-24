@@ -10,34 +10,39 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mufan.shelly.listItem.TablesContent;
+import com.mufan.shelly.listItem.DPIDContent;
+import com.mufan.shelly.listItem.DPIDContent.DPIDItem;
 
 import java.util.List;
 
 /**
- * A fragment representing a list of Tables.
+ * A fragment representing a list of Items.
+ * <p/>
+ * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
+ * interface.
  */
-public class TablesFragment extends Fragment {
+public class DPIDItemFragment extends Fragment {
 
+    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
-    private List<String> tables= null;
-    private static final String TAG = "TablesFragment";
-
-    public TablesFragment() {
-    }
+    private List<String> dpids;
 
     /**
-     * 创建TablesFragment类，并初始化
-     * @param columnCount 行数
-     * @param tables 要显示的表内容
-     * @return TableFragment类
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
      */
-    public static TablesFragment newInstance(int columnCount, List<String> tables) {
-        TablesFragment fragment = new TablesFragment();
-        fragment.tables = tables;
+    public DPIDItemFragment() {
+    }
+
+    // TODO: Customize parameter initialization
+    @SuppressWarnings("unused")
+    public static DPIDItemFragment newInstance(int columnCount, List<String> dpids) {
+        DPIDItemFragment fragment = new DPIDItemFragment();
+        fragment.dpids = dpids;
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -52,17 +57,18 @@ public class TablesFragment extends Fragment {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
 
-        if (tables != null)
-            for (int i = 0; i < tables.size(); i++) {
-                TablesContent.DBTable dbTable = new TablesContent.DBTable(String.valueOf(i+1),tables.get(i),"");
-                TablesContent.addItem(dbTable);
+        if (dpids != null)
+            for (int i = 0; i < dpids.size(); i++) {
+                DPIDContent.ITEMS.clear();
+                DPIDItem dpidItem = new DPIDItem(String.valueOf(i+1), dpids.get(i), "");
+                DPIDContent.addItem(dpidItem);
             }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_table_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_dpiditem_list, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -73,7 +79,7 @@ public class TablesFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new TablesRecyclerViewAdapter(TablesContent.ITEMS, mListener));
+            recyclerView.setAdapter(new DPIDItemRecyclerViewAdapter(DPIDContent.ITEMS, mListener));
         }
         return view;
     }
@@ -96,7 +102,18 @@ public class TablesFragment extends Fragment {
         mListener = null;
     }
 
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     * <p/>
+     * See the Android Training lesson <a href=
+     * "http://developer.android.com/training/basics/fragments/communicating.html"
+     * >Communicating with Other Fragments</a> for more information.
+     */
     public interface OnListFragmentInteractionListener {
-        void onListFragmentInteraction(TablesContent.DBTable item);
+        // TODO: Update argument type and name
+        void onListFragmentInteraction(DPIDItem item);
     }
 }

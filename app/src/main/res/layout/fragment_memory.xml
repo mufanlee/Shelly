@@ -4,20 +4,33 @@
     android:layout_height="match_parent"
     tools:context="com.mufan.shelly.MemoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <lecho.lib.hellocharts.view.PieChartView
-        android:id="@+id/memorychart"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:layout_gravity="center" />
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="86dp"
-        android:text="@string/jvm_memory_bloat"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:layout_gravity="center_horizontal|bottom" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_weight="0.17" />
+
+        <lecho.lib.hellocharts.view.PieChartView
+            android:id="@+id/memorychart"
+            android:layout_width="match_parent"
+            android:layout_height="324dp"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_weight="0.18" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="@string/jvm_memory_bloat"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.34" />
+    </LinearLayout>
 
 </FrameLayout>
