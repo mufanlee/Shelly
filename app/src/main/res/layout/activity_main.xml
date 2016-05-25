@@ -49,4 +49,89 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Controller"
+        android:id="@+id/textView15"
+        android:layout_below="@+id/conbt"
+        android:layout_alignLeft="@+id/conbt"
+        android:layout_alignStart="@+id/conbt" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Switches"
+        android:id="@+id/textView16"
+        android:layout_below="@+id/swbt"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text=" Hosts  "
+        android:id="@+id/textView17"
+        android:layout_below="@+id/hostbt"
+        android:layout_alignRight="@+id/hostbt"
+        android:layout_alignEnd="@+id/hostbt" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/statistics"
+        android:layout_marginTop="31dp"
+        android:src="@drawable/chart"
+        android:layout_below="@+id/textView15"
+        android:layout_alignLeft="@+id/textView15"
+        android:layout_alignStart="@+id/textView15" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/topology"
+        android:layout_alignBottom="@+id/statistics"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/topo" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/about"
+        android:layout_alignBottom="@+id/topology"
+        android:layout_alignLeft="@+id/hostbt"
+        android:layout_alignStart="@+id/hostbt"
+        android:src="@drawable/about" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Statistics"
+        android:id="@+id/textView18"
+        android:layout_below="@+id/statistics"
+        android:layout_alignLeft="@+id/statistics"
+        android:layout_alignStart="@+id/statistics" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Topology"
+        android:id="@+id/textView19"
+        android:layout_below="@+id/topology"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="About"
+        android:id="@+id/textView20"
+        android:layout_below="@+id/about"
+        android:layout_alignLeft="@+id/textView17"
+        android:layout_alignStart="@+id/textView17" />
 </RelativeLayout>

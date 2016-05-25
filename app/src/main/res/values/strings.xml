@@ -36,4 +36,10 @@
     <string name="tables_count">Tables Count:</string>
     <string name="ports">Ports:</string>
     <string name="links">Links:</string>
+
+    <string name="title_activity_about">关于</string>
+    <string name="about_version_label">"App version "</string>
+    <string name="about_author">mufanlee 2016</string>
+    <string name="about_app_icon_content_description">App icon</string>
+    <string name="about_go_to_github">Go to GitHub</string>
 </resources>
