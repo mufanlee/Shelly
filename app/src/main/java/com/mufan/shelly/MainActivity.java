@@ -54,6 +54,13 @@ public class MainActivity extends AppCompatActivity {
         ImageButton mStatisticsButton = (ImageButton) findViewById(R.id.statistics);
 
         ImageButton mTopologyButton = (ImageButton) findViewById(R.id.topology);
+        mTopologyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tIntent = new Intent(MainActivity.this, TopologyActivity.class);
+                startActivity(tIntent);
+            }
+        });
 
         ImageButton mAboutButton = (ImageButton) findViewById(R.id.about);
         mAboutButton.setOnClickListener(new View.OnClickListener() {

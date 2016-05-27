@@ -1,7 +1,9 @@
 package com.mufan.shelly.listItem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Helper class for providing DPID content for DPIDItemFragment
@@ -13,9 +15,10 @@ public class DPIDContent {
      * An array of DPID items.
      */
     public static final List<DPIDItem> ITEMS = new ArrayList<DPIDItem>();
-
+    public static final Map<String, DPIDItem> ITEM_MAP = new HashMap<>();
     public static void addItem(DPIDItem item) {
         ITEMS.add(item);
+        ITEM_MAP.put(item.content, item);
     }
 
     /**

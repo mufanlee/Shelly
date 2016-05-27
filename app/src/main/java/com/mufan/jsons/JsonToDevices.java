@@ -47,7 +47,11 @@ public class JsonToDevices {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 Device device = new Device(jsonObject.getJSONArray("mac").getString(0));
                 if (!jsonObject.getJSONArray("ipv4").isNull(0)) {
-                    device.setIpv4_addr(jsonObject.getJSONArray("ipv4").getString(0));
+                    JSONArray ips = jsonObject.getJSONArray("ipv4");
+                    if (ips.getString(0).equals("0.0.0.0"))
+                        device.setIpv4_addr(ips.getString(1));
+                    else
+                        device.setIpv4_addr(ips.getString(0));
                 }
                 if (!jsonObject.getJSONArray("vlan").isNull(0)) {
                     String s = jsonObject.getJSONArray("vlan").getString(0);

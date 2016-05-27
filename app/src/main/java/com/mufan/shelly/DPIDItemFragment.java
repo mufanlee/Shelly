@@ -59,9 +59,10 @@ public class DPIDItemFragment extends Fragment {
 
         if (dpids != null)
             for (int i = 0; i < dpids.size(); i++) {
-                DPIDContent.ITEMS.clear();
-                DPIDItem dpidItem = new DPIDItem(String.valueOf(i+1), dpids.get(i), "");
-                DPIDContent.addItem(dpidItem);
+                if (!DPIDContent.ITEM_MAP.containsKey(dpids.get(i))) {
+                    DPIDItem dpidItem = new DPIDItem(String.valueOf(i + 1), dpids.get(i), "");
+                    DPIDContent.addItem(dpidItem);
+                }
             }
     }
 

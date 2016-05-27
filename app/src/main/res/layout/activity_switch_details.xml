@@ -109,7 +109,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Medium Text"
                 android:id="@+id/dpidtext"
-                android:padding="13dp" />
+                android:padding="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -117,8 +117,7 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Medium Text"
                 android:id="@+id/manutext"
-                android:padding="12dp"
-                android:textSize="15dp" />
+                android:padding="15dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -126,9 +125,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Medium Text"
                 android:id="@+id/hardtext"
-                android:padding="10dp"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15dp" />
+                android:padding="15dp"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -136,9 +134,8 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Medium Text"
                 android:id="@+id/softtext"
-                android:padding="13dp"
-                android:layout_gravity="center_horizontal"
-                android:textSize="15dp" />
+                android:padding="15dp"
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:layout_width="match_parent"

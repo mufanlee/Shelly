@@ -64,12 +64,12 @@ public class SwitchItemFragment extends Fragment{
         List<Switch> switches = floodlightProvider.getSwitches(true);
         if (switches != null) {
             for (int i = 0; i < switches.size(); i++) {
-                SwitchContent.ITEMS.clear();
-                SwitchContent.ITEM_MAP.clear();
-                SwitchContent.SwitchItem switchItem = new SwitchContent.SwitchItem(
-                        switches.get(i).getDpid(),switches.get(i).getMfr_desc(),switches.get(i).getHw_desc()
-                        ,switches.get(i).getSw_desc(),switches.get(i).getSerial_num(),switches.get(i).getDp_desc());
-                SwitchContent.addItem(switchItem);
+                if (!SwitchContent.ITEM_MAP.containsKey(switches.get(i).getDpid())) {
+                    SwitchContent.SwitchItem switchItem = new SwitchContent.SwitchItem(
+                            switches.get(i).getDpid(), switches.get(i).getMfr_desc(), switches.get(i).getHw_desc()
+                            , switches.get(i).getSw_desc(), switches.get(i).getSerial_num(), switches.get(i).getDp_desc());
+                    SwitchContent.addItem(switchItem);
+                }
             }
         }
         // Set the adapter

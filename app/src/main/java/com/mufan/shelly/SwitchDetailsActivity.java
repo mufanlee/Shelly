@@ -42,14 +42,23 @@ public class SwitchDetailsActivity extends AppCompatActivity {
                         }
                     }
 
+                    assert dpidview != null;
                     dpidview.setText(sw.getDpid());
+                    assert manuview != null;
                     manuview.setText(sw.getMfr_desc());
+                    assert hardview != null;
                     hardview.setText(sw.getHw_desc());
+                    assert softview != null;
                     softview.setText(sw.getSw_desc());
+                    assert serialview != null;
                     serialview.setText(sw.getSerial_num());
+                    assert packetview != null;
                     packetview.setText(String.valueOf(sw.getPacket_count()));
+                    assert flowview != null;
                     flowview.setText(String.valueOf(sw.getFlow_count()));
+                    assert tableview != null;
                     tableview.setText(String.valueOf(sw.getTables()));
+                    assert portview != null;
                     portview.setText(String.valueOf(sw.getPorts().size()));
                 }
             }

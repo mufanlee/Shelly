@@ -31,7 +31,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SwitchActivity" />
         <activity android:name=".SwitchDetailsActivity" />
-        <activity android:name=".AboutActivity"></activity>
+        <activity android:name=".AboutActivity" />
+        <activity android:name=".TopologyActivity"></activity>
     </application>
 
 </manifest>
