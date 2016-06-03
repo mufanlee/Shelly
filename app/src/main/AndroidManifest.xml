@@ -32,7 +32,9 @@
         <activity android:name=".SwitchActivity" />
         <activity android:name=".SwitchDetailsActivity" />
         <activity android:name=".AboutActivity" />
-        <activity android:name=".TopologyActivity"></activity>
+        <activity android:name=".TopologyActivity" />
+        <activity android:name=".HostsActivity" />
+        <activity android:name=".StatisticsActivity"></activity>
     </application>
 
 </manifest>

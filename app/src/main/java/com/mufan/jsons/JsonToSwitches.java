@@ -111,12 +111,14 @@ public class JsonToSwitches {
                 }
 
                 try {
-//                    jsonArray = portObj.getJSONArray("port_reply");
-//                    jsonObject = (JSONObject)jsonArray.get(0);
-//                    jsonArray = jsonObject.getJSONArray("port");
-//                    JSONArray jsonArrayDesc = portdescObj.getJSONArray("portDesc");
-
-                    jsonArray = portObj.getJSONArray("port");
+                    jsonArray = portObj.getJSONArray("port_reply");
+                    if (jsonArray != null) {
+                        jsonObject = (JSONObject) jsonArray.get(0);
+                        jsonArray = jsonObject.getJSONArray("port");
+                    }
+                    else {
+                        jsonArray = portObj.getJSONArray("port");
+                    }
                     JSONArray jsonArrayDesc = portdescObj.getJSONArray("portDesc");
                     for(int i = 0; i < jsonArray.length(); i++)
                     {

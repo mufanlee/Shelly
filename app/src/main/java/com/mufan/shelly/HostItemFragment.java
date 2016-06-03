@@ -10,28 +10,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mufan.models.Switch;
-import com.mufan.shelly.listItem.SwitchContent;
+import com.mufan.models.Device;
+import com.mufan.shelly.listItem.HostContent;
+import com.mufan.shelly.listItem.HostContent.HostItem;
 
 import java.util.List;
 
 /**
- * A fragment representing a list of Swtich Items.
+ * A fragment representing a list of host Items.
  */
-public class SwitchItemFragment extends Fragment{
+public class HostItemFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
-
     private static FloodlightProvider floodlightProvider = FloodlightProvider.getSingleton();
-    private static final String TAG = "SwitchItemFragment";
-    public SwitchItemFragment() {
+    private static final String TAG = "HostItemFragment";
+    public HostItemFragment() {
     }
 
-    public static SwitchItemFragment newInstance(int columnCount) {
-        SwitchItemFragment fragment = new SwitchItemFragment();
+    public static HostItemFragment newInstance(int columnCount) {
+        HostItemFragment fragment = new HostItemFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -50,19 +50,20 @@ public class SwitchItemFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_switchitem_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_hostitem_list, container, false);
 
-        List<Switch> switches = floodlightProvider.getSwitches(false);
-        if (switches == null) {
-            switches = floodlightProvider.getSwitches(true);
+        List<Device> devices = floodlightProvider.getDevices(false);
+        if (devices == null) {
+            devices = floodlightProvider.getDevices(true);
         }
-        if (switches != null) {
-            for (int i = 0; i < switches.size(); i++) {
-                if (!SwitchContent.ITEM_MAP.containsKey(switches.get(i).getDpid())) {
-                    SwitchContent.SwitchItem switchItem = new SwitchContent.SwitchItem(
-                            switches.get(i).getDpid(), switches.get(i).getMfr_desc(), switches.get(i).getHw_desc()
-                            , switches.get(i).getSw_desc(), switches.get(i).getSerial_num(), switches.get(i).getDp_desc());
-                    SwitchContent.addItem(switchItem);
+        if (devices != null) {
+            for (int i = 0; i < devices.size(); i++) {
+                if (!HostContent.ITEM_MAP.containsKey(devices.get(i).getMac_addr())) {
+                    HostItem hostItem = new HostItem(devices.get(i).getMac_addr(),
+                            devices.get(i).getIpv4_addr(), devices.get(i).getVlan(),
+                            devices.get(i).getAttachmentPoint().getSwitchDPID(),
+                            devices.get(i).getAttachmentPoint().getPort(), devices.get(i).getLastSeen());
+                    HostContent.addItem(hostItem);
                 }
             }
         }
@@ -75,7 +76,7 @@ public class SwitchItemFragment extends Fragment{
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new SwitchItemRecyclerViewAdapter(SwitchContent.ITEMS, mListener));
+            recyclerView.setAdapter(new HostItemRecyclerViewAdapter(HostContent.ITEMS, mListener));
         }
         return view;
     }
@@ -103,13 +104,13 @@ public class SwitchItemFragment extends Fragment{
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(SwitchContent.SwitchItem item);
+        void onListFragmentInteraction(HostItem item);
     }
 }

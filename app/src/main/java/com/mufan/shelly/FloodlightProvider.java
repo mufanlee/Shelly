@@ -20,7 +20,7 @@ import java.util.List;
 public class FloodlightProvider {
 
     private Controller controller = new Controller();
-    private List<Switch> switchs;
+    private List<Switch> switches;
     private List<Device> devices;
     private List<Link> links;
 
@@ -36,8 +36,6 @@ public class FloodlightProvider {
     }
 
     public Controller getController(){
-        //controller.setIP("127.0.0.1");
-        //controller.setOpenFlowPort(8080);
         return controller;
     }
 
@@ -58,14 +56,14 @@ public class FloodlightProvider {
     public List<Switch> getSwitches(boolean update){
         if (update) {
             try {
-                switchs = JsonToSwitches.getSwitches();
+                switches = JsonToSwitches.getSwitches();
             } catch (Exception e) {
                 Log.e(TAG, "getDevices: failed to get Switches information:" + e.getMessage());
             }
-            return switchs;
+            return switches;
         }
         else {
-            return switchs;
+            return switches;
         }
     }
 

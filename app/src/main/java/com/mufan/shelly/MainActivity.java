@@ -47,11 +47,19 @@ public class MainActivity extends AppCompatActivity {
         mHostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent hIntent = new Intent(MainActivity.this, HostsActivity.class);
+                startActivity(hIntent);
             }
         });
 
         ImageButton mStatisticsButton = (ImageButton) findViewById(R.id.statistics);
+        mStatisticsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent stIntent = new Intent(MainActivity.this, StatisticsActivity.class);
+                startActivity(stIntent);
+            }
+        });
 
         ImageButton mTopologyButton = (ImageButton) findViewById(R.id.topology);
         mTopologyButton.setOnClickListener(new View.OnClickListener() {
