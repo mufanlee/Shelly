@@ -45,7 +45,6 @@ public class TopologyActivity extends AppCompatActivity {
             Node sw = new Node();
             //sw.setName(switches.get(i).getDpid());
             sw.setName("S"+ HexString.toLong(switches.get(i).getDpid()));
-            //sw.setImage("/res/drawable/sw.png");
             sw.setImage("/res/drawable/switcs.png");
             switchesMap.put(switches.get(i).getDpid(), sw);
             box.add(sw);
@@ -60,7 +59,6 @@ public class TopologyActivity extends AppCompatActivity {
             int pos = ipv4Addr.lastIndexOf('.');
             int hostNumber = Integer.valueOf(ipv4Addr.substring(pos+1));
             host.setName("H"+hostNumber);
-            //host.setImage("/res/drawable/h.png");
             host.setImage("/res/drawable/host.png");
             //node.setName(devices.get(i).getIpv4_addr());
             box.add(host);

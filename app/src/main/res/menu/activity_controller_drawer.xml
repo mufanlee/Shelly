@@ -5,23 +5,23 @@
         <item
             android:id="@+id/nav_info"
             android:icon="@drawable/home"
-            android:title="基本信息" />
+            android:title="Basic Status" />
         <item
             android:id="@+id/nav_tables"
             android:icon="@drawable/news"
-            android:title="数据库表" />
+            android:title="Storage Tables" />
         <item
             android:id="@+id/nav_loadedModules"
             android:icon="@drawable/lists"
-            android:title="加载模块" />
+            android:title="Modules Loaded" />
         <item
             android:id="@+id/nav_memory"
             android:icon="@drawable/bing"
-            android:title="内存消耗" />
+            android:title="JVM Memory Bloat" />
         <item
             android:id="@+id/nav_condevices"
             android:icon="@drawable/switcs"
-            android:title="连接设备" />
+            android:title="Switch Connected" />
     </group>
 
     <item android:title="">
@@ -29,7 +29,7 @@
             <item
                 android:id="@+id/nav_back"
                 android:icon="@drawable/back"
-                android:title="返回" />
+                android:title="back" />
         </menu>
     </item>
 

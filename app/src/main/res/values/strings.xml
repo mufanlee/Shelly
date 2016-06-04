@@ -13,16 +13,16 @@
     <string name="permission_rationale">"Access network permissions are needed for providing ip address
         completions."
     </string>
-    <string name="title_activity_controller">floodlight控制器</string>
+    <string name="title_activity_controller">floodlight controller</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
 
-    <string name="floodlight">floodlight控制器</string>
+    <string name="floodlight">floodlight controller</string>
 
-    <string name="hello_blank_fragment">控制器基本信息</string>
+    <string name="hello_blank_fragment">floodlight Controller Status</string>
 
     <string name="jvm_memory_bloat">JVM Memory Bloat</string>
 
@@ -37,7 +37,7 @@
     <string name="ports">Ports:</string>
     <string name="links">Links:</string>
 
-    <string name="title_activity_about">关于</string>
+    <string name="title_activity_about">about</string>
     <string name="about_version_label">"App version "</string>
     <string name="about_author">mufanlee 2016</string>
     <string name="about_app_icon_content_description">App icon</string>
