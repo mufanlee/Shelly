@@ -5,9 +5,88 @@
     tools:context="com.mufan.shelly.StatisticFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="74dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal|top"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Switch"
+                android:id="@+id/swTextView"
+                android:gravity="center"
+                android:layout_weight="0.90" />
+
+            <TextView
+                android:layout_width="139dp"
+                android:layout_height="42dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Port"
+                android:id="@+id/portTextView"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="84dp"
+            android:layout_gravity="center_horizontal|top">
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sw_spinner"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/port_spinner"
+                android:layout_weight="1"
+                android:spinnerMode="dropdown" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="428dp"
+        android:layout_gravity="center"
+        android:weightSum="1">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_weight="0.55" />
+
+        <lecho.lib.hellocharts.view.LineChartView
+            android:id="@+id/statistics_chart"
+            android:layout_width="match_parent"
+            android:layout_height="390dp"
+            android:layout_gravity="center_horizontal|bottom">
+        </lecho.lib.hellocharts.view.LineChartView>
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="81dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Rate of Switch&apos;s Flow"
+        android:id="@+id/textView21"
+        android:layout_gravity="center_horizontal|bottom"
+        android:gravity="center" />
 
 </FrameLayout>

@@ -19,7 +19,7 @@ public class StatisticsActivity extends AppCompatActivity implements StatisticFr
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             if (statisticFragment == null) {
-                statisticFragment = StatisticFragment.newInstance("","");
+                statisticFragment = StatisticFragment.newInstance();
             }
             ft.replace(R.id.fragment_stattistics_main, statisticFragment).commit();
         }
